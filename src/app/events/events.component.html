@@ -1,0 +1,25 @@
+<div>
+  <h3> {{ titlePage | uppercase }}</h3>
+
+  <table class= "table table-bordered shadow-sm p-3 mb-5 bg-white rounded">
+    <thead>
+      <tr class= "shadow-sm p-3 mb-5 bg-white rounded">
+        <th>Event</th>
+        <th>Date</th>      
+        <th>Time</th>
+        <th>Location</th>
+        <th>Online </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{event.name}}</td>
+        <td>{{event.date | date:'longDate' }} </td>      
+        <td>{{event.price | currency:'CAD':'symbol':'1.2-2'}}</td>
+        <td>{{event.location}}</td>
+        <td *ngIf="event.onlineUrl">  Available</td>
+      </tr>
+    </tbody>
+  </table>
+<button class= "shadow-sm p-3 mb-5 bg-white rounded" (click)="getMessage($event)"> I will be there</button>
+</div>
